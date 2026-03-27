@@ -1,7 +1,12 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  output: 'export',
+  basePath: '/Web-Harmonium',
+  assetPrefix: '/Web-Harmonium/',
+  images: {
+    unoptimized: true,
+  },
 };
 
 export default nextConfig;
