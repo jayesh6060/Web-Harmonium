@@ -1,9 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: 'export',
-  basePath: '/Web-Harmonium',
-  assetPrefix: '/Web-Harmonium/',
+  /* standard vercel config */
   images: {
     unoptimized: true,
   },
