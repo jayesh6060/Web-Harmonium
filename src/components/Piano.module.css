@@ -1,0 +1,294 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap');
+
+.pianoModule {
+  --bg-dark: #0f172a;
+  --accent: #6366f1;
+  --accent-glow: rgba(99, 102, 241, 0.4);
+  --glass: rgba(30, 41, 59, 0.5);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --text-active: #fff;
+  --text-dim: #94a3b8;
+  
+  font-family: 'Outfit', 'Inter', sans-serif;
+  color: white;
+  height: 100vh;
+  background: radial-gradient(circle at top left, #1e1b4b, #0f172a);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  overflow: hidden;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.titleGroup h1 {
+  font-size: 1.2rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  background: linear-gradient(to right, #818cf8, #c084fc);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0;
+}
+
+.subtitle {
+  color: var(--text-dim);
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 300;
+}
+
+.main {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  flex: 1;
+  justify-content: center;
+  padding-bottom: 0.5rem;
+}
+
+/* Reference-style functional blocks */
+.referenceControls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.controlBlock {
+  background: var(--glass);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  min-width: 180px;
+  flex: 1;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.blockTitle {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.4rem 0.75rem;
+  font-size: 0.6rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #818cf8;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.refSlider {
+  width: calc(100% - 1.5rem);
+  margin: 0.75rem;
+  -webkit-appearance: none;
+  background: rgba(255, 255, 255, 0.1) !important;
+  height: 4px;
+  border-radius: 2px;
+  outline: none;
+}
+
+.refSlider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 14px;
+  height: 14px;
+  background: var(--accent);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.toggleRow {
+  padding: 0.75rem;
+  display: flex;
+  justify-content: center;
+}
+
+.toggle {
+  width: 40px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  position: relative;
+  border: 1px solid var(--glass-border);
+  cursor: pointer;
+}
+
+.toggleBall {
+  width: 14px;
+  height: 14px;
+  background: #fff;
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  transition: all 0.2s;
+}
+
+.toggle.on { background: var(--accent); }
+.toggle.on .toggleBall { left: 22px; }
+
+.incControls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+}
+
+.incBtn {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--glass-border);
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.incVal {
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--accent);
+}
+
+.midiInfo {
+  padding: 0.5rem 0.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.midiSelect {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  border: 1px solid var(--glass-border);
+  padding: 0.3rem 0.5rem;
+  border-radius: 8px;
+  font-size: 0.7rem;
+  outline: none;
+  cursor: pointer;
+}
+
+/* Keyboard Improvements */
+.keyboardContainer {
+  background: var(--glass);
+  padding: 1rem;
+  border-radius: 20px;
+  border: 1px solid var(--glass-border);
+  box-shadow: inset 0 2px 20px rgba(0, 0, 0, 0.2);
+}
+
+.keyboard {
+  display: flex;
+  height: 240px;
+  position: relative;
+  background: #000;
+  padding: 6px;
+  border-radius: 10px;
+}
+
+.key {
+  position: relative;
+  flex: 1;
+  cursor: pointer;
+  transition: all 0.1s;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  padding-bottom: 2rem;
+  user-select: none;
+}
+
+.white {
+  background: linear-gradient(to bottom, #fff 0%, #e2e8f0 95%, #94a3b8 100%);
+  border: 1px solid #94a3b8;
+  border-radius: 2px 2px 6px 6px;
+  z-index: 1;
+}
+
+.white.active {
+  background: linear-gradient(to bottom, #e2e8f0 0%, var(--accent) 100%);
+  transform: translateY(3px);
+  box-shadow: 0 0 20px var(--accent-glow);
+}
+
+.black {
+  background: linear-gradient(to bottom, #334155 0%, #0f172a 100%);
+  width: 7.5%;
+  height: 60%;
+  margin-left: -3.75%;
+  margin-right: -3.75%;
+  z-index: 2;
+  border-radius: 0 0 4px 4px;
+}
+
+.black.active {
+  background: linear-gradient(to bottom, #475569 0%, #6366f1 100%);
+  transform: translateY(2px);
+}
+
+.shortcut {
+  font-size: 0.6rem;
+  opacity: 0.2;
+  color: #000;
+  margin-bottom: 0.4rem;
+}
+
+.black .shortcut { color: #fff; opacity: 0.3; }
+
+.noteLabels {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.sargam {
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: #334155;
+}
+
+.blueLabel {
+  color: #3b82f6;
+  font-weight: 800;
+  font-size: 0.65rem;
+}
+
+.noteName {
+  font-size: 0.6rem;
+  opacity: 0.4;
+}
+
+.initButton {
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 40px;
+  font-size: 1rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  box-shadow: 0 5px 20px var(--accent-glow);
+}
+
+.hints { display: none; }
+
+@media (max-width: 1024px) {
+  .keyboard { height: 180px; }
+}

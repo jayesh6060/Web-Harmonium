@@ -1,0 +1,9 @@
+{
+  "name": "Test Song",
+  "tempo": 120,
+  "notes": [
+    { "note": "C4", "time": "0:0:0", "duration": "4n" },
+    { "note": "E4", "time": "0:1:0", "duration": "4n" },
+    { "note": "G4", "time": "0:2:0", "duration": "4n" }
+  ]
+}
